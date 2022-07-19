@@ -9,7 +9,13 @@ var VideoListEntry = ({video, handleVideoListEntryTitleClick}) => (
     <div className="media-body">
       <div
         className="video-list-entry-title"
-        onClick={() => handleVideoListEntryTitleClick(video)}
+        onClick={() => store.dispatch({
+          type: 'updateVideo',
+          payload: {
+            video: video
+          }
+        })
+        }
       >
         {video.snippet.title}
       </div>
@@ -23,3 +29,8 @@ VideoListEntry.propTypes = {
 };
 
 export default VideoListEntry;
+
+//store.dispatch({
+//   type: "ADD_MESSAGE",
+//   payload: { userName: "Lauren", text: "Where should we go out to eat?" }
+// })
