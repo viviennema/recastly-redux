@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
 import Search from './Search.js';
+import {connect} from 'react-redux';
 
 class App extends React.Component {
   constructor(props) {
@@ -62,5 +63,8 @@ class App extends React.Component {
     );
   }
 }
+const mapStateToProps = function(storeState) {
+  return storeState;
+};
 
-export default App;
+export default connect(mapStateToProps)(App);
