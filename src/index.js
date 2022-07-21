@@ -14,7 +14,11 @@ import {Provider} from 'react-redux';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />,
+    <App API_KEY={YOUTUBE_API_KEY} searchYouTube={searchYouTube} />
   </Provider>,
   document.getElementById('app')
 );
+// ReactDOM.render(
+//   <App API_KEY={YOUTUBE_API_KEY} searchYouTube={searchYouTube} />,
+//   document.getElementById('app')
+// );
