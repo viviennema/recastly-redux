@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Search from './../components/Search.js';
 import handleVideoSearch from '../actions/search.js';
+import React from 'react';
 
 //var SearchContainer = () => {};
 const SearchContainer = (props) => {
@@ -11,12 +12,21 @@ const SearchContainer = (props) => {
 // const mapStateToProps = state => {
 //   value: state.value;
 // };
+const mapStateToProps = (state) => {
+  return {
+    currentVideo: state.currentVideo,
+    videoList: state.videoList,
+  };
+};
+
+
 
 const mapDispatchToProps = function(dispatch) {
   return {
 
-    handleSearchInputChange: (q) => dispatch(handleVideoSearch(q)),
-
+    handleSearchInputChange: (q) => {
+      dispatch(handleVideoSearch(q));
+    }
   };
 };
 
@@ -26,4 +36,4 @@ const mapDispatchToProps = function(dispatch) {
 //state and dispatch mappings.
 
 
-export default connect(mapDispatchToProps)(SearchContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);

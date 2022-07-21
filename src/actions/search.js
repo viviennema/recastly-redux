@@ -11,7 +11,7 @@ var handleVideoSearch = (q) => {
   return function(dispatch) {
     // dispatch(searchYouTube(YOUTUBE_API_KEY, q = null));
     setTimeout(function() {
-      searchYouTube({YOUTUBE_API_KEY, q}, function(videos) {
+      searchYouTube({key: YOUTUBE_API_KEY, query: q}, function(videos) {
         dispatch(changeVideoList(videos));
         dispatch(changeVideo(videos[0]));
       });
